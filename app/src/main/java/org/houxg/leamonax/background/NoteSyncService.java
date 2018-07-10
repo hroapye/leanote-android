@@ -74,6 +74,7 @@ public class NoteSyncService extends Service {
                 .subscribe(new Observer<Void>() {
                     @Override
                     public void onCompleted() {
+                        EventBus.getDefault().post(new SyncEvent(true));
                         stopSelf();
                     }
 
